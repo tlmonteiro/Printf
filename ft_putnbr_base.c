@@ -3,28 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tlemos-m <tlemos-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 09:06:06 by tlemos-m          #+#    #+#             */
-/*   Updated: 2022/11/15 11:49:05 by tlemos-m         ###   ########.fr       */
+/*   Updated: 2022/11/15 15:07:15 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	check_base(char *base)
+void	ft_putnbr_base(size_t n, char *base)
 {
-	int	i;
+	size_t	b;
 
-	i = (int)ft_strlen(base);
-	return (i);
-}
-
-void	ft_putnbr_base(int n, char *base)
-{
-	unsigned int	b;
-
-	b = check_base;
+	b = (ft_strlen(base) - 1);
 	if (n < 0)
 	{
 		ft_putchar('-');
@@ -33,7 +25,7 @@ void	ft_putnbr_base(int n, char *base)
 	while (n / b > 0)
 	{
 		ft_putchar(base[n % b]);
-		n = n / b;
+		ft_putnbr_base(n / b, base);
 	}
 	ft_putchar(base[n % b]);
 	return ;

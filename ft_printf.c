@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tlemos-m <tlemos-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:53:31 by tlemos-m          #+#    #+#             */
-/*   Updated: 2022/11/15 11:55:12 by tlemos-m         ###   ########.fr       */
+/*   Updated: 2022/11/15 14:42:52 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 
 static void	check_var(char c, va_list args)
 {
-	if (c == 'c')
+	if (c == 'c' || c == '%')
 		ft_putchar(args);
 	else if (c == 's')
-	{
 		ft_putstr(args);
-	}
 	else if (c == 'p')
 	{
 		write(1, "0x", 2);
+		ft_putnbr_base(&args, "01234556789ABCDEF");
 	}
 	else if (c == 'd' || c == 'i')
 		ft_putnbr_base(args, "0123456789");
@@ -32,8 +31,6 @@ static void	check_var(char c, va_list args)
 		ft_putnbr_base((unsigned int)args, "0123456789abcdef");
 	else if (c == 'X')
 		ft_putnbr_base((unsigned int)args, "0123456789ABCDEF");
-	else if (c == '%')
-		ft_putchar(c);
 	return ;
 }
 
