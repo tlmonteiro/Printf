@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tlemos-m <tlemos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:53:31 by tlemos-m          #+#    #+#             */
-/*   Updated: 2022/11/15 14:42:52 by marvin           ###   ########.fr       */
+/*   Updated: 2022/11/16 10:48:43 by tlemos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,23 @@
 static void	check_var(char c, va_list args)
 {
 	if (c == 'c' || c == '%')
-		ft_putchar(args);
+		ft_putchar(va_arg(args, int));
 	else if (c == 's')
-		ft_putstr(args);
+		ft_putstr(va_arg(args, char *));
 	else if (c == 'p')
 	{
 		write(1, "0x", 2);
-		ft_putnbr_base(&args, "01234556789ABCDEF");
+		ft_putnbr_base(va_arg(args, long unsigned int),
+			"01234556789ABCDEF", 16);
 	}
 	else if (c == 'd' || c == 'i')
-		ft_putnbr_base(args, "0123456789");
+		ft_putnbr_base(va_arg(args, long int), "0123456789", 10);
 	else if (c == 'u')
-		ft_putnbr_base((unsigned int)args, "0123456789");
+		ft_putnbr_base(va_arg(args, long unsigned int), "0123456789", 10);
 	else if (c == 'x')
-		ft_putnbr_base((unsigned int)args, "0123456789abcdef");
+		ft_putnbr_base(va_arg(args, long unsigned int), "0123456789abcdef", 16);
 	else if (c == 'X')
-		ft_putnbr_base((unsigned int)args, "0123456789ABCDEF");
+		ft_putnbr_base(va_arg(args, long unsigned int), "0123456789ABCDEF", 16);
 	return ;
 }
 
@@ -53,4 +54,5 @@ int	ft_printf(const char *s, ...)
 		i++;
 	}
 	va_end(args);
+	return (0);
 }

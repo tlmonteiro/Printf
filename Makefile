@@ -3,7 +3,7 @@ NAME = libftprintf.a
 C_SOURCES = ft_printf.c ft_putchar.c ft_putnbr_base.c \
 			ft_putstr.c ft_strlen.c
 
-OBJ = $(C_SOURCES:.c=o)
+OBJ = $(C_SOURCES:.c=.o)
 
 CREATE = @ar -rc
 
