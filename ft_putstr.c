@@ -3,21 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tlemos-m <tlemos-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 11:53:36 by tlemos-m          #+#    #+#             */
-/*   Updated: 2022/11/15 11:55:44 by tlemos-m         ###   ########.fr       */
+/*   Updated: 2022/11/16 14:24:26 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putstr(char *s)
+int	ft_putstr(char *s)
 {
+	if (*s == 0)
+	{
+		write(1, "(null)", 6);
+		return ;
+	}
 	while (*s)
 	{
 		ft_putchar(*s);
 		s++;
 	}
-	return ;
+	return (ft_strlen(s));
 }

@@ -20,8 +20,9 @@
 
 int		ft_printf(const char *s, ...);
 void	ft_putchar(char c);
-void	ft_putstr(char *s);
-void	ft_putnbr_base(size_t n, char *base, size_t b);
+int 	ft_putstr(char *s);
+int 	ft_putnbr_base(long long int n, char *base, int b);
+int 	ft_putptr_base(long long int n, char *base);
 size_t	ft_strlen(char *s);
 
 #endif
