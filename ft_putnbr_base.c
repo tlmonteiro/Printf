@@ -6,7 +6,7 @@
 /*   By: tlemos-m <tlemos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 09:06:06 by tlemos-m          #+#    #+#             */
-/*   Updated: 2022/11/18 13:08:02 by tlemos-m         ###   ########.fr       */
+/*   Updated: 2022/11/23 11:17:24 by tlemos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ int	ft_putnbr_base(long long n, char *base, int b)
 	if (n / b > 0)
 		i += ft_putnbr_base(n / b, base, b);
 	ft_putchar(base[n % b]);
-	return (i + 1);
+	i++;
+	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: tlemos-m <tlemos-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:53:31 by tlemos-m          #+#    #+#             */
-/*   Updated: 2022/11/18 13:57:53 by tlemos-m         ###   ########.fr       */
+/*   Updated: 2022/11/23 10:25:57 by tlemos-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	check_var(char c, va_list args)
 		i = ft_putstr(va_arg(args, char *));
 	else if (c == 'p')
 	{
-		i = ft_putptr_base(va_arg(args, unsigned long long),
+		i = ft_putptr_base(va_arg(args, unsigned long),
 				"0123456789abcdef", 0);
 	}
 	else if (c == 'd' || c == 'i')
